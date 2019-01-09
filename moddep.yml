@@ -1,0 +1,23 @@
+Apiversion: extension/v1beta1
+kind: deployment
+metadata:
+  name: openmrs-deploy
+spec:
+  replicas: 2
+  minreadyseconds: 30
+  strategy:
+    type: Rollingupdate
+    rollingupdate:
+      maxunavailable: 1
+      maxsurge: 1
+  template:
+    metadata:
+      labels:
+        app: openmrs
+    spec:
+      containers:
+      - name: openmrs
+        image: gopichamada/openmrs
+        ports:
+        - containerport: 8080
+
