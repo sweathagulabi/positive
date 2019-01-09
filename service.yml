@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: openmrs
+spec:
+  selector:
+    app: openmrs
+  type: Nodeport
+  ports:
+  - name: khavi
+    port: 8080
+    nodePort: 30003
+    protocol: Tcp
+
+
